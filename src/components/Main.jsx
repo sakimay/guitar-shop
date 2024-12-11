@@ -1,9 +1,8 @@
 import Guitar from "./Guitar"
-import { useState } from "react"
-import { db } from "../data/db"
-export default function Main() {
-    const [data, setData] = useState(db)
-    const [cart, setCart] = useState([])
+
+
+export default function Main({cart,data,setCart}) {
+    
 
     function addToCart(item){
         const itemExists = cart.findIndex( guitar => guitar.id === item.id)
