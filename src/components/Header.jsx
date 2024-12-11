@@ -1,9 +1,9 @@
-import {useMemo} from "react"
-export default function Header({ cart ,removeFromCart }) {
+import { useMemo } from "react"
+export default function Header({ cart, removeFromCart }) {
 
     //state derivado
-    const isEmtpy = useMemo( () => cart.length === 0, [cart] )
-    const cartTotal = useMemo( () => cart.reduce((total, guitar) => total + (guitar.price * guitar.quantity), 0), [cart] )
+    const isEmtpy = useMemo(() => cart.length === 0, [cart])
+    const cartTotal = useMemo(() => cart.reduce((total, guitar) => total + (guitar.price * guitar.quantity), 0), [cart])
 
     return (
         <>
@@ -22,7 +22,7 @@ export default function Header({ cart ,removeFromCart }) {
                                 <img className="img-fluid" src="./public/img/carrito.png" alt="imagen carrito" />
 
                                 <div id="carrito" className="bg-white p-3">
-                                    { isEmtpy ? (
+                                    {isEmtpy ? (
                                         <p className="text-center">El carrito esta vacio</p>
                                     ) : (
                                         <>
@@ -68,7 +68,7 @@ export default function Header({ cart ,removeFromCart }) {
                                                                 <button
                                                                     className="btn btn-danger"
                                                                     type="button"
-                                                                    onClick={() => {removeFromCart(guitar.id)} }
+                                                                    onClick={() => { removeFromCart(guitar.id) }}
                                                                 >
                                                                     X
                                                                 </button>

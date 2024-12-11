@@ -1,10 +1,6 @@
 import Guitar from "./Guitar"
 
-
-export default function Main({data,addToCart}) {
-    
-
-    
+export default function Main({ data, addToCart }) {
 
     return (
         <main className="container-xl mt-5">
@@ -12,7 +8,7 @@ export default function Main({data,addToCart}) {
 
             <div className="row mt-5">
                 {data.map((guitar) => (
-                    <Guitar 
+                    <Guitar
                         key={guitar.id}
                         guitar={guitar}
                         addToCart={addToCart}
