@@ -1,5 +1,5 @@
 import { useMemo } from "react"
-export default function Header({ cart, removeFromCart }) {
+export default function Header({ cart, removeFromCart, increaseQuantity, decreaseQuantity }) {
 
     //state derivado
     const isEmtpy = useMemo(() => cart.length === 0, [cart])
@@ -53,6 +53,7 @@ export default function Header({ cart, removeFromCart }) {
                                                                 <button
                                                                     type="button"
                                                                     className="btn btn-dark"
+                                                                    onClick={() => { decreaseQuantity(guitar.id) }}
                                                                 >
                                                                     -
                                                                 </button>
@@ -60,6 +61,7 @@ export default function Header({ cart, removeFromCart }) {
                                                                 <button
                                                                     type="button"
                                                                     className="btn btn-dark"
+                                                                    onClick={() => { increaseQuantity(guitar.id) }}
                                                                 >
                                                                     +
                                                                 </button>
