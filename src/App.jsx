@@ -8,10 +8,12 @@ function App() {
   const [data, setData] = useState(db)
   const [cart, setCart] = useState([])
   const MAX_ITEMS = 5
+  const MIN_ITEMS = 1
 
   function addToCart(item) {
     const itemExists = cart.findIndex(guitar => guitar.id === item.id)
     if (itemExists >= 0) {
+      if(cart[itemExists].quantity >= MAX_ITEMS) return
       const updatedCart = [...cart]
       updatedCart[itemExists].quantity += 1
       setCart(updatedCart)
@@ -40,7 +42,7 @@ function App() {
 
   function decreaseQuantity(id) {
     const updatedCart = cart.map(item => {
-      if (item.id === id && item.quantity > 1) {
+      if (item.id === id && item.quantity > MIN_ITEMS) {
         return {
           ...item,
           quantity: item.quantity - 1
