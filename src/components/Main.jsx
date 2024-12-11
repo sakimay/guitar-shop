@@ -1,20 +1,10 @@
 import Guitar from "./Guitar"
 
 
-export default function Main({cart,data,setCart}) {
+export default function Main({data,addToCart}) {
     
 
-    function addToCart(item){
-        const itemExists = cart.findIndex( guitar => guitar.id === item.id)
-        if(itemExists >= 0) {
-            const updatedCart = [...cart]
-            updatedCart[itemExists].quantity += 1 
-            setCart(updatedCart)
-        }else{
-            item.quantity = 1
-            setCart(prevCart => [...prevCart, item])
-        }
-    }
+    
 
     return (
         <main className="container-xl mt-5">
